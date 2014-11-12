@@ -3,7 +3,7 @@
 [Retour d'expérience sur un projet en Golang]
 \[goo.gl/TpHJLq](http://goo.gl/TpHJLq)
 ---
-# This is where it all began
+# Qui sommes nous ?
 ---
 /Qui sommes nous ?/Orange
 
@@ -251,51 +251,27 @@ func main() {
 ```go
 package main
 
-import (
-	"time"
-)
-
 func producer(c chan int) {
-	for {
-		c <- 1
-		time.Sleep(100 * time.Nanosecond)
-	}
+    for i:=0; i<5; i++ {
+        c <- i
+    }
 }
 
 func consumer(c chan int) {
-	ticker := time.Tick(5 * time.Millisecond)
-	result := 0
-	for {
-		select {
-		case val := <-c:
-			result = result + val
-		case <-ticker:
-			println(result)
-			return
-		}
-	}
+    for {
+        i := <-c
+        println(i)
+    }
 }
-```
----
-
-/Le Go/Exemple
-
-### Exemple
-
-```go
 
 func main() {
-	c := make(chan int)
-	go consumer(c)
-	go consumer(c)
-	go consumer(c)
-	producer(c)
+    c := make(chan int)
+    go consumer(c)
+    producer(c)
 }
-
 ```
 
-http://play.golang.org/p/kB04dmtTcE
-
+<http://play.golang.org/p/Bu2lvD5NCO>
 
 ---
 
