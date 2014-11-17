@@ -91,7 +91,7 @@ L'équipe des développeurs ayant participé au projet est constituée de :
 
 - Problématiques d'accès concurrents réglés avec les classes de `java.util.concurrent`, et des blocs synchronisés
 
-- Monitoré à partir beans exposés en JMX
+- Monitoré à partir de beans exposés en JMX
 
 ---
 
@@ -289,7 +289,7 @@ func main() {
 
 - go test
  
-- go dep
+- go get
 
 [...]
 
@@ -376,19 +376,6 @@ L'API de logs est assez critiquée car elle :
 L'API de parsing des options en ligne de commande ne respecte par les standards Unix.
 
 ---
-/Les écueils/Certificats
-
-### Certificats
-
-Nous avons rencontré des difficultés pour la gestion des certificats :
-
-- Des certificats générés sans l'option `ExtendedKeyUsage` (valeur `clientAuth`) ne peuvent servir à authentifier un client
-
-- L'algorithme MD5 n'est pas supporté pour la signature de certificats bien qu'il soit dans la liste des algorithmes supportés par TLS 2.1
-
-Si tous ces choix sont probablement pertinents, ils peuvent poser des problèmes avec l'existant
-
----
 /Les écueils/Gestion des encodages
 
 ### Gestion des encodages
@@ -418,6 +405,21 @@ import = "github.com/gorilla/mux"
 commit = "23d36c08ab90f4957ae8e7d781907c368f5454dd"
 ...
 ```
+
+---
+/Les écueils/TLS
+
+### TLS immature
+
+Nous avons rencontré des difficultés avec l'implémentation TLS :
+
+- Des certificats générés sans l'option `ExtendedKeyUsage` (valeur `clientAuth`) ne peuvent servir à authentifier un client
+- L'algorithme MD5 n'est pas supporté pour la signature de certificats bien qu'il soit dans la liste des algorithmes supportés par TLS 1.2
+- Le handshake SSLv2 n'est pas supporté ce qui pose problème avec nombre de clients SSL (en particulier Java 1.6)
+
+Si tous ces choix sont probablement pertinents du point de vue sécurité, ils peuvent poser des problèmes de compatibilité avec l'existant.
+
+Nous avons résolu le problème en déléguant la gestion du TLS à un HA-proxy en façade.
 
 ---
 
