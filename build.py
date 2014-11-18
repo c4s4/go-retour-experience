@@ -3,6 +3,7 @@
 
 import sys
 
+TEMPLATE = 'misc/template.html'
 FOOTNOTE = '.footnote[%s]'
 TITLE = '''
 template: inverse
@@ -45,7 +46,7 @@ def main(filename):
         text = stream.read().strip()
     pages = [p.strip() for p in text.split('---')]
     processed = [process(p) for p in pages]
-    with open('template.html') as stream:
+    with open(TEMPLATE) as stream:
         template = stream.read()
     html = template.replace('<? CONTENT ?>', '\n---\n'.join(processed))
     with open('index.html', 'w') as stream:
