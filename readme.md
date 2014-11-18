@@ -1,7 +1,7 @@
 ---
 # Ready to Go ?
 [Retour d'expérience sur un projet en Golang]
-\[HTML goo.gl/TpHJLq](http://goo.gl/TpHJLq) [PDF goo.gl/Ni1pdi](http://goo.gl/Ni1pdi)
+\[HTML http://goo.gl/nPljiO](http://goo.gl/nPljiO) [PDF http://goo.gl/gzgDZW](http://goo.gl/gzgDZW)
 ---
 # Qui sommes nous ?
 ---
