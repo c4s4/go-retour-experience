@@ -3,6 +3,7 @@
 
 import sys
 
+FILENAME = 'README.md'
 TEMPLATE = 'misc/template.html'
 FOOTNOTE = '.footnote[%s]'
 TITLE = '''
@@ -54,7 +55,7 @@ def main(filename):
 
 
 if __name__ == '__main__':
-    filename = 'readme.md'
+    filename = FILENAME
     if len(sys.argv) > 1:
         filename = sys.argv[1]
     main(filename)
