@@ -279,19 +279,17 @@ func main() {
 
 ### Les commandes Go
 
-- En ligne de commande
+Tous les outils indispensables sont disponibles, en ligne de commande, avec toute installation de Go :
 
 - go build
-	- Compilation
-
 - go run
-	- Compilation + exécution
-
 - go test
- 
+- go test -cover
+- go test -race
 - go get
+- go fmt
 
-[...]
+...
 
 ---
 
@@ -299,12 +297,13 @@ func main() {
 
 ### Les exécutables
 
-- Binaires sans dépendance dynamique
+- Binaires compilés statiquement
 
 - Volumineux 
     - "Hello world" ~ 1 Mo
     - Notre application ~ 9 Mo
 	- Embarque toutes les bibliothèques utilisées
+    - Embarque le ramasse-miettes
 
 - Plate Formes supportées : 
 	- FreeBSD et Linux 32/64 sur x86 et ARM, Windows, MacOS,…
@@ -314,8 +313,6 @@ func main() {
 /Le Go/Environnements
 
 ### L'environnement de développement
-
-- go code
 
 - Existence de modes pour emacs et vi :
 	- go-vim
@@ -432,6 +429,7 @@ Nous avons résolu le problème en déléguant la gestion du TLS à un HA-proxy 
 
 - La syntaxe est simple 
 	- "Langage procédural à accolades"
+
 - Outillage efficace
 
 - Goroutines et channels
