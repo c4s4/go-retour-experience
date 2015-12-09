@@ -49,8 +49,7 @@ def main(markdown, template):
     with open(template) as stream:
         source = stream.read()
     html = source.replace('<? CONTENT ?>', '\n---\n'.join(processed))
-    with open(template, 'wb') as stream:
-        stream.write(html)
+    print(html)
 
 
 if __name__ == '__main__':

@@ -15,9 +15,8 @@ clean:
 slides:
 	@echo "$(YELLOW)Generating slides$(CLEAR)"
 	mkdir -p $(BUILD_DIR)
-	cp res/template.html $(BUILD_DIR)/index.html
+	python res/build.py README.md res/template.html > $(BUILD_DIR)/index.html
 	sed -i -e "s/<? TITLE ?>/$(TITLE)/g" $(BUILD_DIR)/index.html
-	python res/build.py README.md $(BUILD_DIR)/index.html
 	cp -r res/ img/ $(BUILD_DIR)/
 	rm $(BUILD_DIR)/res/*.html $(BUILD_DIR)/res/*.py
 
