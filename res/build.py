@@ -3,8 +3,6 @@
 
 import sys
 
-FILENAME = 'README.md'
-TEMPLATE = 'misc/template.html'
 FOOTNOTE = '.footnote[%s]'
 TITLE = '''
 template: inverse
@@ -21,6 +19,7 @@ layout: false
 '''
 root = ''
 previous = []
+
 
 def process(page):
     global root, previous
@@ -42,21 +41,19 @@ def process(page):
         return TITLE % '\n'.join(lines)
 
 
-def main(filename):
-    with open(filename) as stream:
+def main(markdown, template):
+    with open(markdown) as stream:
         text = stream.read().strip()
     pages = [p.strip() for p in text.split('---')]
     processed = [process(p) for p in pages]
-    with open(TEMPLATE) as stream:
-        template = stream.read()
-    html = template.replace('<? CONTENT ?>', '\n---\n'.join(processed))
-    with open('index.html', 'w') as stream:
+    with open(template) as stream:
+        source = stream.read()
+    html = source.replace('<? CONTENT ?>', '\n---\n'.join(processed))
+    with open(template, 'wb') as stream:
         stream.write(html)
 
 
 if __name__ == '__main__':
-    filename = FILENAME
-    if len(sys.argv) > 1:
-        filename = sys.argv[1]
-    main(filename)
-
+    if len(sys.argv) != 3:
+        print("Must pass markdown and template files on command line")
+    main(markdown=sys.argv[1], template=sys.argv[2])

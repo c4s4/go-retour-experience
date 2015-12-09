@@ -7,7 +7,7 @@
 ---
 /Qui sommes nous ?/Orange
 
-![Groupe Orange](img/groupe-orange.jpg)
+![Groupe Orange](img/groupe-orange.png)
 
 Orange est le 3ème opérateur mobile et 1er fournisseur d’accès Internet ADSL en Europe, France Télécom compte parmi les leaders mondiaux des services de télécommunications aux entreprises multinationales.
 
@@ -52,7 +52,7 @@ L'équipe des développeurs ayant participé au projet est constituée de :
 ### Plate-forme d'envoi et réception SMS/MMS 
 #### Entre des éditeurs de services et des usagers mobile
 
-![Bordel ya pas d'image](img/xms.jpg)
+![Bordel ya pas d'image](img/xms.png)
 
 - ~ 30 applis en production
 - Langages Java, C & Python
@@ -65,7 +65,7 @@ L'équipe des développeurs ayant participé au projet est constituée de :
 
 ### Le frontal d'accès à la plateforme XMS
 
-![Bordel ya pas d'image](img/sgsenabler.jpg)
+![Bordel ya pas d'image](img/sgsenabler.png)
 
 - Serveur TCP & HTTP
 
