@@ -1,0 +1,15 @@
+- version: 1.0.3
+  date:    2015-12-09
+  summary: "Présentation SQLI"
+
+- version: 1.0.2
+  date:    2014-10-17
+  summary: "BDXIO 2014"
+
+- version: 1.0.1
+  date:    2014-10-06
+  summary: "DevDays Orange"
+
+- version: 1.0.0
+  date:    2014-10-03
+  summary: "Atelier OAB"

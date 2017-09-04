@@ -1,0 +1,21 @@
+# NeON build file (http://github.com/c4s4/neon)
+
+extends: c4s4/build/slides.yml
+
+properties:
+  TITLE: 'Ready to Go'
+
+targets:
+
+  slides:
+    doc: 'Generate slides'
+    steps:
+    - mkdir: '#{BUILD_DIR}'
+    - $: 'python res/build.py README.md res/template.html > 
+          #{BUILD_DIR}/index.html'
+    - replace: '#{BUILD_DIR}/index.html'
+      with:
+        '<? TITLE ?>': '#{TITLE}'
+    - copy:  ['res/**/*', 'img/**/*']
+      todir: '#{BUILD_DIR}'
+      flat:  false
